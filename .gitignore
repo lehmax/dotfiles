@@ -1,0 +1,15 @@
+/*
+**/.DS_Store
+
+.config/*
+/.config/gitui/*
+
+!.config
+!/.config/kitty/
+!/.config/gitui/
+!/.config/gitui/macchiato.ron
+
+!.zshrc
+!.tmux.conf
+!README.md
+!.gitignore
