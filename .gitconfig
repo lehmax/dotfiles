@@ -1,0 +1,14 @@
+[user]
+	name = Maxime Leherquer
+	email = 45520008+lehmax@users.noreply.github.com
+	mail = 45520008+lehmax@users.noreply.github.com
+[init]
+	defaultBranch = main
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+	editor = neovim
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit

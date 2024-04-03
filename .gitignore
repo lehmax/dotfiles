@@ -5,10 +5,12 @@
 /.config/gitui/*
 
 !.config
+
 !/.config/kitty/
 !/.config/gitui/
 !/.config/gitui/macchiato.ron
 
+!.gitconfig
 !.zshrc
 !.tmux.conf
 !README.md
