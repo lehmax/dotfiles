@@ -2,6 +2,7 @@
 
 ## MISC TOOLS REMINDER
 
+- kitty
 - zsh
 - zsh4humans
 - powerlevel10k
