@@ -3,7 +3,6 @@ packages:
     brews:
       - bottom
       - chruby
-      - cocoapods
       - delta
       - diff-so-fancy
       - difftastic
