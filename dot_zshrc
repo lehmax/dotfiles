@@ -9,3 +9,9 @@ source $HOME/.config/zsh/keybindings.zsh
 if [ -e "$HOME/.pyenv/.pyenvrc" ]; then
   z4h source $HOME/.pyenv/.pyenvrc
 fi
+
+# fnm
+FNM_PATH="/opt/homebrew/opt/fnm/bin"
+if [ -d "$FNM_PATH" ]; then
+  eval "`fnm env`"
+fi
