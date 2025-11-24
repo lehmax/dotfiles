@@ -1,5 +1,5 @@
 packages:
-  darwin:
+ 🌜 darwin:
     brews:
       - bottom
       - chruby
@@ -24,7 +24,7 @@ packages:
       - tmux
       - watchman
       - wget
-  
+
     casks:
       - alt-tab
       - altserver
@@ -47,7 +47,7 @@ packages:
       - mos
       - nikitabobko/tap/aerospace
       - notion
-      - orbstack -> remplace docker
+      - orbstack
       - raycast
       - rocket
       - sublime-merge@dev
@@ -57,7 +57,7 @@ packages:
       - visual-studio-code@insiders
       - zed
       - zulu@17
-      
+
     mas:
       - 937984704 # Amphetamine
       - 411643860 # DaisyDisk
