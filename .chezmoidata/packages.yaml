@@ -1,5 +1,5 @@
 packages:
- 🌜 darwin:
+  darwin:
     brews:
       - bottom
       - chruby
@@ -24,7 +24,6 @@ packages:
       - tmux
       - watchman
       - wget
-
     casks:
       - alt-tab
       - altserver
@@ -57,7 +56,6 @@ packages:
       - visual-studio-code@insiders
       - zed
       - zulu@17
-
     mas:
       - 937984704 # Amphetamine
       - 411643860 # DaisyDisk
