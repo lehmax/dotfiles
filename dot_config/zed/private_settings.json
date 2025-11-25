@@ -1,19 +1,118 @@
 {
-  // "buffer_font_family": "FiraCode Nerd Font",
-  "telemetry": {
-    "diagnostics": true,
-    "metrics": false
-  },
-  "icon_theme": "Colored Zed Icons Theme Light",
-  "buffer_font_family": ".ZedSans",
-  "buffer_font_size": 14,
-  "tab_size": 2,
-  "theme": {
-    "mode": "system",
-    "light": "Arrakis Day",
-    "dark": "Catppuccin Mocha"
-  },
-  "ui_font_size": 16,
-  "vim_mode": false,
-  "file_scan_exclusions": ["*.cjs", "tsconfig.tsbuildinfo"]
+	"terminal": {
+		"font_family": "FiraCode-Retina",
+		"shell": {
+			"program": "zsh"
+		}
+	},
+	"calls": {
+		"mute_on_join": true
+	},
+	"languages": {
+		"TSX": {
+			"show_edit_predictions": false
+		}
+	},
+	"disable_ai": false,
+	"agent": {
+		"play_sound_when_agent_done": false,
+		"model_parameters": [],
+		"expand_edit_card": false
+	},
+	"show_edit_predictions": true,
+	"auto_indent": true,
+	"hard_tabs": true,
+	"buffer_font_weight": 400.0,
+	"project_panel": {
+		"indent_size": 20.0
+	},
+	"tab_size": 2,
+	"show_whitespaces": "selection",
+	"buffer_line_height": "comfortable",
+	"telemetry": {
+		"diagnostics": true,
+		"metrics": false
+	},
+	"icon_theme": "Colored Zed Icons Theme Light",
+	"buffer_font_family": "FiraCode-Retina",
+	"buffer_font_size": 16.0,
+	"buffer_font_features": {
+		"calt": true
+	},
+	"theme": {
+		"mode": "system",
+		"light": "Arrakis Day",
+		"dark": "Arrakis Night"
+	},
+	"toolbar": {
+		"breadcrumbs": true,
+		"quick_actions": false,
+		"selections_menu": false
+	},
+	"tabs": {
+		"git_status": true
+	},
+	"confirm_quit": true,
+	"edit_predictions": {
+		"enabled_in_text_threads": true,
+		"mode": "eager",
+		"disabled_globs": [".env"]
+	},
+	"current_line_highlight": "all",
+	"outline_panel": {
+		"indent_size": 20.0,
+		"button": false
+	},
+	"notification_panel": {
+		"button": false
+	},
+	"ui_font_size": 15.0,
+	"base_keymap": "VSCode",
+	"vim_mode": false,
+	"file_scan_exclusions": ["*.cjs", "tsconfig.tsbuildinfo"],
+	"format_on_save": "on",
+	"formatter": "prettier",
+	"prettier": {
+		"semi": false,
+		"allowed": true,
+		"tabWidth": 2,
+		"bracketSpacing": true,
+		"jsxSingleQuote": true,
+		"singleQuote": true
+	},
+	"cursor_blink": true,
+	"cursor_shape": "bar",
+	"hide_mouse": "on_typing_and_movement",
+	"selection_highlight": true,
+	"whitespace_map": {
+		"space": "•",
+		"tab": "⟶"
+	},
+	"unnecessary_code_fade": 0.3,
+	"redact_private_values": false,
+	"soft_wrap": "none",
+	"preferred_line_length": 80,
+	"show_wrap_guides": true,
+	"wrap_guides": [],
+	"gutter": {
+		"line_numbers": true,
+		"runnables": true,
+		"breakpoints": false,
+		"folds": true,
+		"min_line_number_digits": 0
+	},
+	"relative_line_numbers": "enabled",
+	"indent_guides": {
+		"enabled": true,
+		"line_width": 1,
+		"active_line_width": 1,
+		"coloring": "fixed",
+		"background_coloring": "disabled"
+	},
+	"sticky_scroll": {
+		"enabled": false
+	},
+	"features": {
+		"edit_prediction_provider": "copilot"
+	}
 }
