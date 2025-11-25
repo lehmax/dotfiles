@@ -1,12 +1,16 @@
 {
-    "workbench.colorTheme": "Catppuccin Macchiato",
-    "editor.fontFamily": "CartographCF Nerd Font",
-    "editor.codeLensFontFamily": "CartographCF Nerd Font",
+    "editor.codeLensFontFamily": "FiraCode-Retina",
     "editor.fontLigatures": true,
     "editor.fontSize": 14,
     "editor.tabSize": 2,
-    "editor.inlayHints.fontFamily": "CartographCF Nerd Font",
+    "editor.inlayHints.fontFamily": "FiraCode-Retina",
     "[typescriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    },
+    "telemetry.editStats.enabled": false,
+    "telemetry.feedback.enabled": false,
+    "telemetry.editStats.details.enabled": false,
+    "workbench.colorTheme": "Arrakis Day",
+    "editor.fontFamily": "FiraCode-Retina",
+    "editor.minimap.enabled": false
 }
