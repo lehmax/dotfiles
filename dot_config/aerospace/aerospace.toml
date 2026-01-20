@@ -88,6 +88,10 @@ if.app-id = 'net.kovidgoyal.kitty'
 run = ['move-node-to-workspace 2', 'layout tiles']
 
 [[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = ['move-node-to-workspace 2', 'layout tiles']
+
+[[on-window-detected]]
 if.app-id = 'com.usebruno.app'
 run = ['move-node-to-workspace 3', 'layout tiles']
 
