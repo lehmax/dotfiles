@@ -1,6 +1,6 @@
 [user]
-  name = Maxime Leherquer
-  email = m.leherquer-ext@genybet.fr
+	name = Maxime Leherquer
+	email = m.leherquer-ext@genybet.fr
 
 [include]
   path = .gitalias
@@ -10,9 +10,11 @@
 
 [commit]
   gpgSign = false
+	template = /Users/max/.stCommitMsg
 
 [core]
   pager = delta
+	excludesfile = /Users/max/.gitignore_global
 
 [diff]
   colorMoved = default
@@ -33,3 +35,9 @@
 [push]
   autoSetupRemote = true
 
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

@@ -79,7 +79,7 @@
       "manifest": {
         "id": "comment",
         "name": "Comments Highlighter",
-        "version": "0.4.1",
+        "version": "0.6.1",
         "schema_version": 1,
         "description": "Comment language extension for highlighting special comments",
         "repository": "https://github.com/thedadams/zed-comment",
@@ -98,7 +98,7 @@
         "grammars": {
           "comment": {
             "repository": "https://github.com/thedadams/tree-sitter-comment",
-            "rev": "93b12e7b219d74fdbbb27e6671ca2f714738b253",
+            "rev": "56771424c0026454360ac98b1bf8227a62714622",
             "path": null
           }
         },
@@ -115,12 +115,13 @@
       "manifest": {
         "id": "csharp",
         "name": "C#",
-        "version": "0.1.3",
+        "version": "1.0.1",
         "schema_version": 1,
         "description": "C# support.",
         "repository": "https://github.com/zed-extensions/csharp",
         "authors": [
-          "fminkowski <fminkowski@gmail.com>"
+          "fminkowski <fminkowski@gmail.com>",
+          "Fabian Freimueller <fabianfreimueller@gmail.com>"
         ],
         "lib": {
           "kind": "Rust",
@@ -144,13 +145,27 @@
             "languages": [],
             "language_ids": {},
             "code_action_kinds": null
+          },
+          "roslyn": {
+            "language": "CSharp",
+            "languages": [],
+            "language_ids": {},
+            "code_action_kinds": null
           }
         },
         "context_servers": {},
         "agent_servers": {},
         "slash_commands": {},
         "snippets": null,
-        "capabilities": []
+        "capabilities": [
+          {
+            "kind": "process:exec",
+            "command": "*",
+            "args": [
+              "--download"
+            ]
+          }
+        ]
       },
       "dev": false
     },
@@ -267,7 +282,7 @@
       "manifest": {
         "id": "git-firefly",
         "name": "Git Firefly",
-        "version": "0.1.1",
+        "version": "0.1.3",
         "schema_version": 1,
         "description": "Provides Git Syntax Highlighting",
         "repository": "https://github.com/d1y/git_firefly",
@@ -282,18 +297,12 @@
         "themes": [],
         "icon_themes": [],
         "languages": [
-          "languages/gitcommit",
-          "languages/gitrebase",
           "languages/gitattributes",
           "languages/gitignore",
-          "languages/gitconfig"
+          "languages/gitconfig",
+          "languages/gitrebase"
         ],
         "grammars": {
-          "git_commit": {
-            "repository": "https://github.com/the-mikedavis/tree-sitter-git-commit",
-            "rev": "6f193a66e9aa872760823dff020960c6cedc37b3",
-            "path": null
-          },
           "git_config": {
             "repository": "https://github.com/the-mikedavis/tree-sitter-git-config",
             "rev": "9c2a1b7894e6d9eedfe99805b829b4ecd871375e",
@@ -328,7 +337,7 @@
       "manifest": {
         "id": "html",
         "name": "HTML",
-        "version": "0.2.3",
+        "version": "0.3.0",
         "schema_version": 1,
         "description": "HTML support.",
         "repository": "https://github.com/zed-industries/zed",
@@ -370,20 +379,83 @@
       },
       "dev": false
     },
+    "java": {
+      "manifest": {
+        "id": "java",
+        "name": "Java",
+        "version": "6.8.6",
+        "schema_version": 1,
+        "description": "Java support.",
+        "repository": "https://github.com/zed-extensions/java",
+        "authors": [
+          "Java Extension Contributors"
+        ],
+        "lib": {
+          "kind": "Rust",
+          "version": "0.7.0"
+        },
+        "themes": [],
+        "icon_themes": [],
+        "languages": [
+          "languages/java",
+          "languages/properties"
+        ],
+        "grammars": {
+          "java": {
+            "repository": "https://github.com/tree-sitter/tree-sitter-java",
+            "rev": "94703d5a6bed02b98e438d7cad1136c01a60ba2c",
+            "path": null
+          },
+          "properties": {
+            "repository": "https://github.com/tree-sitter-grammars/tree-sitter-properties",
+            "rev": "579b62f5ad8d96c2bb331f07d1408c92767531d9",
+            "path": null
+          }
+        },
+        "language_servers": {
+          "jdtls": {
+            "language": "Java",
+            "languages": [],
+            "language_ids": {},
+            "code_action_kinds": null
+          }
+        },
+        "context_servers": {},
+        "agent_servers": {},
+        "slash_commands": {},
+        "snippets": null,
+        "capabilities": [
+          {
+            "kind": "process:exec",
+            "command": "*",
+            "args": [
+              "-version"
+            ]
+          }
+        ],
+        "debug_adapters": {
+          "Java": {
+            "schema_path": null
+          }
+        }
+      },
+      "dev": false
+    },
     "just": {
       "manifest": {
         "id": "just",
         "name": "Justfile",
-        "version": "0.1.4",
+        "version": "0.2.0",
         "schema_version": 1,
-        "description": "Justfile syntax highlighting",
+        "description": "Justfile language support",
         "repository": "https://github.com/jackTabsCode/zed-just",
         "authors": [
-          "Jack T. <jack@jackt.space>"
+          "Jack Taylor <j@jackt.io>",
+          "Matt Robenolt <m@robenolt.com>"
         ],
         "lib": {
-          "kind": null,
-          "version": null
+          "kind": "Rust",
+          "version": "0.7.0"
         },
         "themes": [],
         "icon_themes": [],
@@ -393,11 +465,20 @@
         "grammars": {
           "just": {
             "repository": "https://github.com/IndianBoy42/tree-sitter-just",
-            "rev": "3f90d24eb8c8d9e8c74fee7120d79c3ec7229f26",
+            "rev": "bb0c898a80644de438e6efe5d88d30bf092935cd",
             "path": null
           }
         },
-        "language_servers": {},
+        "language_servers": {
+          "just-lsp": {
+            "language": null,
+            "languages": [
+              "Just"
+            ],
+            "language_ids": {},
+            "code_action_kinds": null
+          }
+        },
         "context_servers": {},
         "agent_servers": {},
         "slash_commands": {},
@@ -410,7 +491,7 @@
       "manifest": {
         "id": "kotlin",
         "name": "Kotlin",
-        "version": "0.1.5",
+        "version": "0.2.0",
         "schema_version": 1,
         "description": "Kotlin language support.",
         "repository": "https://github.com/zed-extensions/kotlin",
@@ -460,7 +541,7 @@
       "manifest": {
         "id": "make",
         "name": "Make",
-        "version": "1.1.1",
+        "version": "1.1.2",
         "schema_version": 1,
         "description": "Makefile syntax highlighting",
         "repository": "https://github.com/caius/zed-make",
@@ -470,7 +551,8 @@
           "Marshall Bowers <elliott.codes@gmail.com>",
           "Luke Naylor <luke@grahamnaylor.net>",
           "Igor Támara <igor.tamara@gmail.com>",
-          "Michael Alexander <michael.alexander@karlstorz.com>"
+          "Michael Alexander <michael.alexander@karlstorz.com>",
+          "Donnie Adams <donnie@thedadams.com>"
         ],
         "lib": {
           "kind": null,
@@ -501,7 +583,7 @@
       "manifest": {
         "id": "ruby",
         "name": "Ruby",
-        "version": "0.16.0",
+        "version": "0.16.4",
         "schema_version": 1,
         "description": "Ruby support.",
         "repository": "https://github.com/zed-extensions/ruby",
@@ -515,12 +597,12 @@
         "themes": [],
         "icon_themes": [],
         "languages": [
-          "languages/yaml-erb",
-          "languages/html-erb",
-          "languages/ruby",
           "languages/erb",
+          "languages/html-erb",
           "languages/rbs",
-          "languages/js-erb"
+          "languages/yaml-erb",
+          "languages/js-erb",
+          "languages/ruby"
         ],
         "grammars": {
           "embedded_template": {
@@ -530,7 +612,7 @@
           },
           "rbs": {
             "repository": "https://github.com/joker1007/tree-sitter-rbs",
-            "rev": "6bcfa169021a9cc40fb47cd75ef4b4d3767d6ab5",
+            "rev": "5282e2f36d4109f5315c1d9486b5b0c2044622bb",
             "path": null
           },
           "ruby": {
@@ -602,7 +684,7 @@
         "context_servers": {},
         "agent_servers": {},
         "slash_commands": {},
-        "snippets": "/home/runner/work/extensions/extensions/extensions/ruby/snippets.json",
+        "snippets": "./languages/ruby/ruby.json",
         "capabilities": [
           {
             "kind": "process:exec",
@@ -661,6 +743,13 @@
               "update",
               "--norc",
               "*"
+            ]
+          },
+          {
+            "kind": "process:exec",
+            "command": "ruby",
+            "args": [
+              "--version"
             ]
           }
         ],
@@ -728,7 +817,7 @@
       "manifest": {
         "id": "swift",
         "name": "Swift",
-        "version": "0.4.4",
+        "version": "0.4.6",
         "schema_version": 1,
         "description": "Swift support.",
         "repository": "https://github.com/zed-extensions/swift",
@@ -777,7 +866,7 @@
       "manifest": {
         "id": "toml",
         "name": "TOML",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "schema_version": 1,
         "description": "TOML support.",
         "repository": "https://github.com/zed-extensions/toml",
@@ -899,22 +988,6 @@
       "hidden": false,
       "grammar": "gitattributes"
     },
-    "Git Commit": {
-      "extension": "git-firefly",
-      "path": "languages/gitcommit",
-      "matcher": {
-        "path_suffixes": [
-          "COMMIT_EDITMSG",
-          "EDIT_DESCRIPTION",
-          "MERGE_MSG",
-          "NOTES_EDITMSG",
-          "TAG_EDITMSG"
-        ],
-        "first_line_pattern": null
-      },
-      "hidden": false,
-      "grammar": "git_commit"
-    },
     "Git Config": {
       "extension": "git-firefly",
       "path": "languages/gitconfig",
@@ -1003,6 +1076,18 @@
       "hidden": false,
       "grammar": "embedded_template"
     },
+    "Java": {
+      "extension": "java",
+      "path": "languages/java",
+      "matcher": {
+        "path_suffixes": [
+          "java"
+        ],
+        "first_line_pattern": null
+      },
+      "hidden": false,
+      "grammar": "java"
+    },
     "Just": {
       "extension": "just",
       "path": "languages/just",
@@ -1047,6 +1132,18 @@
       },
       "hidden": false,
       "grammar": "make"
+    },
+    "Properties": {
+      "extension": "java",
+      "path": "languages/properties",
+      "matcher": {
+        "path_suffixes": [
+          "properties"
+        ],
+        "first_line_pattern": null
+      },
+      "hidden": false,
+      "grammar": "properties"
     },
     "RBS": {
       "extension": "ruby",

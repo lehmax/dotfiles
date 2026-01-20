@@ -1,16 +1,56 @@
 {
-    "editor.codeLensFontFamily": "FiraCode-Retina",
-    "editor.fontLigatures": true,
-    "editor.fontSize": 14,
-    "editor.tabSize": 2,
-    "editor.inlayHints.fontFamily": "FiraCode-Retina",
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "telemetry.editStats.enabled": false,
-    "telemetry.feedback.enabled": false,
-    "telemetry.editStats.details.enabled": false,
-    "workbench.colorTheme": "Arrakis Day",
-    "editor.fontFamily": "FiraCode-Retina",
-    "editor.minimap.enabled": false
+  "editor.codeLensFontFamily": "FiraCode-Retina",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 14,
+  "editor.tabSize": 2,
+  "editor.inlayHints.fontFamily": "FiraCode-Retina",
+  "telemetry.editStats.enabled": false,
+  "telemetry.feedback.enabled": false,
+  "telemetry.editStats.details.enabled": false,
+  "workbench.colorTheme": "Arrakis Day",
+  "editor.fontFamily": "FiraCode-Retina",
+  "editor.minimap.enabled": false,
+  "tailwindCSS.emmetCompletions": true,
+  "editor.defaultFormatter": "prettier.prettier-vscode",
+  "editor.formatOnSave": true,
+
+  "[javascript]": {
+    "editor.defaultFormatter": "prettier.prettier-vscode",
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "prettier.prettier-vscode",
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "prettier.prettier-vscode",
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+  ],
+  "eslint.format.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+  },
+  "yaml.schemas": {
+    "file:///Users/max/.vscode-insiders/extensions/continue.continue-1.3.28-darwin-arm64/config-yaml-schema.json": [
+      ".continue/**/*.yaml"
+    ],
+    "file:///Users/max/.vscode-insiders/extensions/continue.continue-1.3.29-darwin-arm64/config-yaml-schema.json": [
+      ".continue/**/*.yaml"
+    ]
+  },
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "git.autofetch": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "diffEditor.renderSideBySide": true,
+  "typescript.preferences.preferTypeOnlyAutoImports": true,
+  "typescript.preferences.includePackageJsonAutoImports": "auto",
+  "typescript.suggest.autoImports": true,
+  "javascript.suggest.autoImports": true,
+  "diffEditor.experimental.showMoves": true,
+  "chat.tools.terminal.outputLocation": "chat",
+  "claudeCode.preferredLocation": "panel",
+  "chat.viewSessions.orientation": "stacked",
 }

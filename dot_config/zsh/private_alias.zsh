@@ -61,3 +61,5 @@ alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias y='yarn'
+
+alias gb='cd ~/project/genybet'

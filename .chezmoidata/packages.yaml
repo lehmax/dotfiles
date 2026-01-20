@@ -23,6 +23,7 @@ packages:
       - tmux
       - watchman
       - wget
+      - gitui
     casks:
       - alt-tab
       - altserver

@@ -6,7 +6,9 @@ after-login-command = []
 # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = []
+after-startup-command = [
+  'exec-and-forget borders active_color=0xffffa800 inactive_color=0xff494d64 width=5.0'
+]
 
 # Start AeroSpace at login
 start-at-login = true
@@ -61,42 +63,108 @@ automatically-unhide-macos-hidden-apps = false
     outer.top =        10
     outer.right =      10
 
+[workspace-to-monitor-force-assignment]
+  1 = 'main'      # Code principal
+  2 = 'main'      # Kitty
+  3 = 'main'      # Divers (Bruno, etc.)
+  4 = 'main'      # Dev mobile (Xcode)
+  5 = 'main'      # Dev mobile (Android Studio)
+  6 = 'secondary' # Finicky / Chrome Canary / Firefox Developer
+  7 = 'secondary' # Simulateurs Xcode / Émulateurs Android
+  8 = 'secondary' # Musique / Teams
+  9 = 'secondary' # Divers Floating
+
+# Applications assignment to workspaces
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCodeInsiders'
+run = ['move-node-to-workspace 1', 'layout tiles']
+
+[[on-window-detected]]
+if.app-id = 'dev.zed.Zed'
+run = ['move-node-to-workspace 1', 'layout tiles']
+
+[[on-window-detected]]
+if.app-id = 'net.kovidgoyal.kitty'
+run = ['move-node-to-workspace 2', 'layout tiles']
+
+[[on-window-detected]]
+if.app-id = 'com.usebruno.app'
+run = ['move-node-to-workspace 3', 'layout tiles']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.dt.Xcode'
+run = ['move-node-to-workspace 4', 'layout tiles']
+
+[[on-window-detected]]
+if.app-id = 'com.google.android.studio'
+if.window-title-regex-substring = '^(?!Running Devices).*$'
+run = ['move-node-to-workspace 5', 'layout tiles']
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome.canary'
+run = ['move-node-to-workspace 6', 'layout tiles']
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.firefoxdeveloperedition'
+run = ['move-node-to-workspace 6', 'layout tiles']
+
+# Simulateurs iOS
+[[on-window-detected]]
+if.app-id = 'com.apple.iphonesimulator'
+run = ['move-node-to-workspace 7', 'layout tiles']
+
+# Fenêtre "Running Devices" d'Android Studio
+[[on-window-detected]]
+if.app-id = 'com.google.android.studio'
+if.window-title-regex-substring = 'Running Devices'
+run = ['move-node-to-workspace 7', 'layout tiles']
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+run = ['move-node-to-workspace 8', 'layout tiles']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Music'
+run = ['move-node-to-workspace 9', 'layout tiles']
+
+# Applications en FLOATING
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.ActivityMonitor'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.screencaptureui'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Preview'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Passwords'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.keychainaccess'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'notion.id'
+run = ['move-node-to-workspace 3', 'layout tiles']
+
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # 'main' binding mode must be always presented
 # Fallback value (if you omit the key): mode.main.binding = {}
 [mode.main.binding]
-
-    # All possible keys:
-    # - Letters.        a, b, c, ..., z
-    # - Numbers.        0, 1, 2, ..., 9
-    # - Keypad numbers. keypad0, keypad1, keypad2, ..., keypad9
-    # - F-keys.         f1, f2, ..., f20
-    # - Special keys.   minus, equal, period, comma, slash, backslash, quote, semicolon,
-    #                   backtick, leftSquareBracket, rightSquareBracket, space, enter, esc,
-    #                   backspace, tab, pageUp, pageDown, home, end, forwardDelete,
-    #                   sectionSign (ISO keyboards only, european keyboards only)
-    # - Keypad special. keypadClear, keypadDecimalMark, keypadDivide, keypadEnter, keypadEqual,
-    #                   keypadMinus, keypadMultiply, keypadPlus
-    # - Arrows.         left, down, up, right
-
-    # All possible modifiers: cmd, alt, ctrl, shift
-
-    # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
-
-    # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-    # You can uncomment the following lines to open up terminal with alt + enter shortcut
-    # (like in i3)
-    # alt-enter = '''exec-and-forget osascript -e '
-    # tell application "Terminal"
-    #     do script
-    #     activate
-    # end tell'
-    # '''
-
-    # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-    # alt-slash = 'layout tiles horizontal vertical'
-    # alt-comma = 'layout accordion horizontal vertical'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
     cmd-left = 'focus left'
@@ -133,18 +201,6 @@ automatically-unhide-macos-hidden-apps = false
     cmd-shift-9 = 'move-node-to-workspace 9 --focus-follows-window'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-    alt-f =  ['layout tiles floating']
-    alt-q =  ['layout tiles accordion']
+    alt-shift-f = 'layout tiles floating'
     alt-shift-space = 'layout floating tiling'
-    alt-v =  ['join-with left']
-
-[workspace-to-monitor-force-assignment]
-  1 = 'main'
-  2 = 'main'
-  3 = 'main'
-  4 = 'main'
-  5 = 'secondary'
-  6 = 'secondary'
-  7 = 'secondary'
-  8 = 'secondary'
-  9 = 'main'
+    alt-shift-t = 'layout accordion tiles'
