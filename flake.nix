@@ -19,7 +19,7 @@
       ];
     in
     let
-      username = "chell";
+      username = $USER;
     in
     {
       homeConfigurations = builtins.listToAttrs (map (system: {
