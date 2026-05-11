@@ -32,5 +32,4 @@
   "gitlens.ai.vscode.model": "copilot:gpt-4.1",
   "js/ts.experimental.useTsgo": false,
   "diffEditor.hideUnchangedRegions.enabled": true,
-  "claudeCode.preferredLocation": "panel",
 }

@@ -10,19 +10,19 @@
 
 [commit]
   gpgSign = false
-	template = /Users/max/.stCommitMsg
+  template = /Users/max/.stCommitMsg
 
 [core]
   pager = delta
-	excludesfile = /Users/max/.gitignore_global
-	editor = code-insiders --wait
+  excludesfile = /Users/max/.gitignore_global
+  editor = code-insiders --wait
 
 [diff]
   colorMoved = default
 
 [init]
   defaultBranch = main
-	defaultRefFormat = files
+  defaultRefFormat = files
 
 [interactive]
   diffFilter = delta --color-only

@@ -3,6 +3,7 @@ packages:
     brews:
       - mise
       - watchman
+      - mole
 
     casks:
       - alt-tab
