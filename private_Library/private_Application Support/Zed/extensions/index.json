@@ -5,8 +5,10 @@
         "id": "astro",
         "name": "Astro",
         "version": "0.1.9",
+        "version": "0.1.9",
         "schema_version": 1,
         "description": "Astro support.",
+        "repository": "https://github.com/zed-extensions/astro",
         "repository": "https://github.com/zed-extensions/astro",
         "authors": [
           "Alvaro Gaona <alvgaona@gmail.com>",
@@ -15,8 +17,10 @@
         "lib": {
           "kind": "Rust",
           "version": "0.7.0"
+          "version": "0.7.0"
         },
         "themes": [],
+        "icon_themes": [],
         "icon_themes": [],
         "languages": [
           "languages/astro"
@@ -38,7 +42,10 @@
         },
         "context_servers": {},
         "agent_servers": {},
+        "agent_servers": {},
         "slash_commands": {},
+        "snippets": null,
+        "capabilities": []
         "snippets": null,
         "capabilities": []
       },
@@ -64,12 +71,52 @@
         "icon_themes": [
           "icon_themes/colored-zed-icons-theme.json"
         ],
+        "icon_themes": [],
         "languages": [],
         "grammars": {},
         "language_servers": {},
         "context_servers": {},
         "agent_servers": {},
+        "agent_servers": {},
         "slash_commands": {},
+        "snippets": null,
+        "capabilities": []
+      },
+      "dev": false
+    },
+    "comment": {
+      "manifest": {
+        "id": "comment",
+        "name": "Comments Highlighter",
+        "version": "0.6.4",
+        "schema_version": 1,
+        "description": "Comment language extension for highlighting special comments",
+        "repository": "https://github.com/thedadams/zed-comment",
+        "authors": [
+          "Donnie Adams <donnie@thedadams.com>"
+        ],
+        "lib": {
+          "kind": null,
+          "version": null
+        },
+        "themes": [],
+        "icon_themes": [],
+        "languages": [
+          "languages/comment"
+        ],
+        "grammars": {
+          "comment": {
+            "repository": "https://github.com/thedadams/tree-sitter-comment",
+            "rev": "3c25c172802fbb23c27580d77b1328c268beec43",
+            "path": null
+          }
+        },
+        "language_servers": {},
+        "context_servers": {},
+        "agent_servers": {},
+        "slash_commands": {},
+        "snippets": null,
+        "capabilities": []
         "snippets": null,
         "capabilities": []
       },
@@ -116,18 +163,24 @@
         "id": "csharp",
         "name": "C#",
         "version": "1.0.4",
+        "version": "1.0.4",
         "schema_version": 1,
         "description": "C# support.",
         "repository": "https://github.com/zed-extensions/csharp",
+        "repository": "https://github.com/zed-extensions/csharp",
         "authors": [
+          "fminkowski <fminkowski@gmail.com>",
+          "Fabian Freimueller <fabianfreimueller@gmail.com>"
           "fminkowski <fminkowski@gmail.com>",
           "Fabian Freimueller <fabianfreimueller@gmail.com>"
         ],
         "lib": {
           "kind": "Rust",
           "version": "0.7.0"
+          "version": "0.7.0"
         },
         "themes": [],
+        "icon_themes": [],
         "icon_themes": [],
         "languages": [
           "languages/csharp"
@@ -135,6 +188,7 @@
         "grammars": {
           "c_sharp": {
             "repository": "https://github.com/tree-sitter/tree-sitter-c-sharp",
+            "rev": "485f0bae0274ac9114797fc10db6f7034e4086e3",
             "rev": "485f0bae0274ac9114797fc10db6f7034e4086e3",
             "path": null
           }
@@ -151,11 +205,20 @@
             "languages": [],
             "language_ids": {},
             "code_action_kinds": null
+          },
+          "roslyn": {
+            "language": "CSharp",
+            "languages": [],
+            "language_ids": {},
+            "code_action_kinds": null
           }
         },
         "context_servers": {},
         "agent_servers": {},
+        "agent_servers": {},
         "slash_commands": {},
+        "snippets": null,
+        "capabilities": []
         "snippets": null,
         "capabilities": []
       },
@@ -185,7 +248,10 @@
         "language_servers": {},
         "context_servers": {},
         "agent_servers": {},
+        "agent_servers": {},
         "slash_commands": {},
+        "snippets": null,
+        "capabilities": []
         "snippets": null,
         "capabilities": []
       },
@@ -196,8 +262,10 @@
         "id": "dockerfile",
         "name": "Dockerfile",
         "version": "0.2.0",
+        "version": "0.2.0",
         "schema_version": 1,
         "description": "Dockerfile support.",
+        "repository": "https://github.com/zed-extensions/dockerfile",
         "repository": "https://github.com/zed-extensions/dockerfile",
         "authors": [
           "d1y <chenhonzho@gmail.com>",
@@ -206,8 +274,10 @@
         "lib": {
           "kind": "Rust",
           "version": "0.7.0"
+          "version": "0.7.0"
         },
         "themes": [],
+        "icon_themes": [],
         "icon_themes": [],
         "languages": [
           "languages/dockerfile"
@@ -232,6 +302,18 @@
             },
             "code_action_kinds": null
           },
+          "docker-language-server": {
+            "language": "Dockerfile",
+            "languages": [
+              "Dockerfile",
+              "Docker Compose"
+            ],
+            "language_ids": {
+              "Dockerfile": "dockerfile",
+              "Docker Compose": "docker-compose"
+            },
+            "code_action_kinds": null
+          },
           "dockerfile-language-server": {
             "language": "Dockerfile",
             "languages": [],
@@ -240,6 +322,7 @@
           }
         },
         "context_servers": {},
+        "agent_servers": {},
         "agent_servers": {},
         "slash_commands": {},
         "snippets": null,
@@ -276,7 +359,10 @@
         "language_servers": {},
         "context_servers": {},
         "agent_servers": {},
+        "agent_servers": {},
         "slash_commands": {},
+        "snippets": null,
+        "capabilities": []
         "snippets": null,
         "capabilities": []
       },
@@ -293,6 +379,8 @@
         "authors": [
           "d1y <chenhonzhou@gmail.com>",
           "Peter Tripp <petertripp@gmail.com>"
+          "d1y <chenhonzhou@gmail.com>",
+          "Peter Tripp <petertripp@gmail.com>"
         ],
         "lib": {
           "kind": null,
@@ -300,10 +388,13 @@
         },
         "themes": [],
         "icon_themes": [],
+        "icon_themes": [],
         "languages": [
           "languages/gitignore",
           "languages/gitattributes",
+          "languages/gitattributes",
           "languages/gitrebase",
+          "languages/gitconfig"
           "languages/gitconfig"
         ],
         "grammars": {
@@ -331,7 +422,10 @@
         "language_servers": {},
         "context_servers": {},
         "agent_servers": {},
+        "agent_servers": {},
         "slash_commands": {},
+        "snippets": null,
+        "capabilities": []
         "snippets": null,
         "capabilities": []
       },
@@ -342,6 +436,7 @@
         "id": "html",
         "name": "HTML",
         "version": "0.3.1",
+        "version": "0.3.1",
         "schema_version": 1,
         "description": "HTML support.",
         "repository": "https://github.com/zed-industries/zed",
@@ -351,8 +446,10 @@
         "lib": {
           "kind": "Rust",
           "version": "0.7.0"
+          "version": "0.7.0"
         },
         "themes": [],
+        "icon_themes": [],
         "icon_themes": [],
         "languages": [
           "languages/html"
@@ -376,6 +473,7 @@
           }
         },
         "context_servers": {},
+        "agent_servers": {},
         "agent_servers": {},
         "slash_commands": {},
         "snippets": null,
@@ -450,18 +548,25 @@
         "id": "just",
         "name": "Justfile",
         "version": "0.2.0",
+        "version": "0.2.0",
         "schema_version": 1,
+        "description": "Justfile language support",
         "description": "Justfile language support",
         "repository": "https://github.com/jackTabsCode/zed-just",
         "authors": [
+          "Jack Taylor <j@jackt.io>",
+          "Matt Robenolt <m@robenolt.com>"
           "Jack Taylor <j@jackt.io>",
           "Matt Robenolt <m@robenolt.com>"
         ],
         "lib": {
           "kind": "Rust",
           "version": "0.7.0"
+          "kind": "Rust",
+          "version": "0.7.0"
         },
         "themes": [],
+        "icon_themes": [],
         "icon_themes": [],
         "languages": [
           "languages/just"
@@ -469,6 +574,7 @@
         "grammars": {
           "just": {
             "repository": "https://github.com/IndianBoy42/tree-sitter-just",
+            "rev": "bb0c898a80644de438e6efe5d88d30bf092935cd",
             "rev": "bb0c898a80644de438e6efe5d88d30bf092935cd",
             "path": null
           }
@@ -483,9 +589,22 @@
             "code_action_kinds": null
           }
         },
+        "language_servers": {
+          "just-lsp": {
+            "language": null,
+            "languages": [
+              "Just"
+            ],
+            "language_ids": {},
+            "code_action_kinds": null
+          }
+        },
         "context_servers": {},
         "agent_servers": {},
+        "agent_servers": {},
         "slash_commands": {},
+        "snippets": null,
+        "capabilities": []
         "snippets": null,
         "capabilities": []
       },
@@ -495,6 +614,7 @@
       "manifest": {
         "id": "kotlin",
         "name": "Kotlin",
+        "version": "0.2.1",
         "version": "0.2.1",
         "schema_version": 1,
         "description": "Kotlin language support.",
@@ -506,8 +626,10 @@
         "lib": {
           "kind": "Rust",
           "version": "0.5.0"
+          "version": "0.5.0"
         },
         "themes": [],
+        "icon_themes": [],
         "icon_themes": [],
         "languages": [
           "languages/kotlin"
@@ -531,9 +653,16 @@
             "languages": [],
             "language_ids": {},
             "code_action_kinds": null
+          },
+          "kotlin-lsp": {
+            "language": "Kotlin",
+            "languages": [],
+            "language_ids": {},
+            "code_action_kinds": null
           }
         },
         "context_servers": {},
+        "agent_servers": {},
         "agent_servers": {},
         "slash_commands": {},
         "snippets": null,
@@ -546,12 +675,18 @@
         "id": "make",
         "name": "Make",
         "version": "1.1.2",
+        "version": "1.1.2",
         "schema_version": 1,
         "description": "Makefile syntax highlighting",
         "repository": "https://github.com/caius/zed-make",
         "authors": [
           "Caius Durling <dev@caius.name>",
           "d1y <chenhonzhou@gmail.com>",
+          "Marshall Bowers <elliott.codes@gmail.com>",
+          "Luke Naylor <luke@grahamnaylor.net>",
+          "Igor Támara <igor.tamara@gmail.com>",
+          "Michael Alexander <michael.alexander@karlstorz.com>",
+          "Donnie Adams <donnie@thedadams.com>"
           "Marshall Bowers <elliott.codes@gmail.com>",
           "Luke Naylor <luke@grahamnaylor.net>",
           "Igor Támara <igor.tamara@gmail.com>",
@@ -564,6 +699,7 @@
         },
         "themes": [],
         "icon_themes": [],
+        "icon_themes": [],
         "languages": [
           "languages/make"
         ],
@@ -571,11 +707,14 @@
           "make": {
             "repository": "https://github.com/tree-sitter-grammars/tree-sitter-make",
             "rev": "5e9e8f8ff3387b0edcaa90f46ddf3629f4cfeb1d",
+            "repository": "https://github.com/tree-sitter-grammars/tree-sitter-make",
+            "rev": "5e9e8f8ff3387b0edcaa90f46ddf3629f4cfeb1d",
             "path": null
           }
         },
         "language_servers": {},
         "context_servers": {},
+        "agent_servers": {},
         "agent_servers": {},
         "slash_commands": {},
         "snippets": null,
@@ -588,6 +727,7 @@
         "id": "ruby",
         "name": "Ruby",
         "version": "0.16.11",
+        "version": "0.16.11",
         "schema_version": 1,
         "description": "Ruby support.",
         "repository": "https://github.com/zed-extensions/ruby",
@@ -597,35 +737,60 @@
         "lib": {
           "kind": "Rust",
           "version": "0.7.0"
+          "version": "0.7.0"
         },
         "themes": [],
+        "icon_themes": [],
         "icon_themes": [],
         "languages": [
           "languages/rbs",
           "languages/yaml-erb",
+          "languages/rbs",
+          "languages/yaml-erb",
           "languages/erb",
           "languages/js-erb",
+          "languages/js-erb",
           "languages/ruby",
+          "languages/html-erb"
           "languages/html-erb"
         ],
         "grammars": {
           "embedded_template": {
             "repository": "https://github.com/tree-sitter/tree-sitter-embedded-template",
             "rev": "c70c1de07dedd532089c0c90835c8ed9fa694f5c",
+            "rev": "c70c1de07dedd532089c0c90835c8ed9fa694f5c",
             "path": null
           },
           "rbs": {
             "repository": "https://github.com/joker1007/tree-sitter-rbs",
+            "rev": "5282e2f36d4109f5315c1d9486b5b0c2044622bb",
             "rev": "5282e2f36d4109f5315c1d9486b5b0c2044622bb",
             "path": null
           },
           "ruby": {
             "repository": "https://github.com/tree-sitter/tree-sitter-ruby",
             "rev": "71bd32fb7607035768799732addba884a37a6210",
+            "rev": "71bd32fb7607035768799732addba884a37a6210",
             "path": null
           }
         },
         "language_servers": {
+          "herb": {
+            "language": null,
+            "languages": [
+              "HTML+ERB"
+            ],
+            "language_ids": {},
+            "code_action_kinds": null
+          },
+          "kanayago": {
+            "language": null,
+            "languages": [
+              "Ruby"
+            ],
+            "language_ids": {},
+            "code_action_kinds": null
+          },
           "herb": {
             "language": null,
             "languages": [
@@ -658,7 +823,18 @@
               "HTML+ERB",
               "YAML+ERB",
               "JS+ERB"
+              "ERB",
+              "HTML+ERB",
+              "YAML+ERB",
+              "JS+ERB"
             ],
+            "language_ids": {
+              "ERB": "erb",
+              "Ruby": "ruby",
+              "JS+ERB": "erb",
+              "HTML+ERB": "erb",
+              "YAML+ERB": "erb"
+            },
             "language_ids": {
               "ERB": "erb",
               "Ruby": "ruby",
@@ -691,11 +867,105 @@
             ],
             "language_ids": {},
             "code_action_kinds": null
+          },
+          "sorbet": {
+            "language": null,
+            "languages": [
+              "Ruby"
+            ],
+            "language_ids": {},
+            "code_action_kinds": null
+          },
+          "steep": {
+            "language": null,
+            "languages": [
+              "Ruby"
+            ],
+            "language_ids": {},
+            "code_action_kinds": null
           }
         },
         "context_servers": {},
         "agent_servers": {},
+        "agent_servers": {},
         "slash_commands": {},
+        "snippets": "./languages/ruby/ruby.json",
+        "capabilities": [
+          {
+            "kind": "process:exec",
+            "command": "gem",
+            "args": [
+              "install",
+              "--norc",
+              "--no-user-install",
+              "--no-format-executable",
+              "--no-document",
+              "*"
+            ]
+          },
+          {
+            "kind": "process:exec",
+            "command": "gem",
+            "args": [
+              "uninstall",
+              "--norc",
+              "*",
+              "--version",
+              "*"
+            ]
+          },
+          {
+            "kind": "process:exec",
+            "command": "gem",
+            "args": [
+              "list",
+              "--norc",
+              "--exact",
+              "*"
+            ]
+          },
+          {
+            "kind": "process:exec",
+            "command": "bundle",
+            "args": [
+              "info",
+              "--version",
+              "*"
+            ]
+          },
+          {
+            "kind": "process:exec",
+            "command": "gem",
+            "args": [
+              "outdated",
+              "--norc"
+            ]
+          },
+          {
+            "kind": "process:exec",
+            "command": "gem",
+            "args": [
+              "update",
+              "--norc",
+              "*"
+            ]
+          },
+          {
+            "kind": "process:exec",
+            "command": "ruby",
+            "args": [
+              "--version"
+            ]
+          }
+        ],
+        "debug_adapters": {
+          "rdbg": {
+            "schema_path": null
+          }
+        },
+        "debug_locators": {
+          "ruby": {}
+        }
         "snippets": "./languages/ruby/ruby.json",
         "capabilities": [
           {
@@ -781,7 +1051,10 @@
         "id": "scss",
         "name": "SCSS & SASS",
         "version": "0.2.0",
+        "name": "SCSS & SASS",
+        "version": "0.2.0",
         "schema_version": 1,
+        "description": "SCSS and SASS support",
         "description": "SCSS and SASS support",
         "repository": "https://github.com/bajrangCoder/zed-scss",
         "authors": [
@@ -790,10 +1063,14 @@
         "lib": {
           "kind": "Rust",
           "version": "0.7.0"
+          "version": "0.7.0"
         },
         "themes": [],
         "icon_themes": [],
+        "icon_themes": [],
         "languages": [
+          "languages/sass",
+          "languages/sassdoc",
           "languages/sass",
           "languages/sassdoc",
           "languages/scss"
@@ -809,7 +1086,19 @@
             "rev": "38abe86eac15ed8d668de04df963ef0a4c220cfe",
             "path": null
           },
+          "sass": {
+            "repository": "https://github.com/bajrangCoder/tree-sitter-sass",
+            "rev": "fb280c41b070657e4ff4d4e5e6eea6cb19efd9b8",
+            "path": null
+          },
+          "sassdoc": {
+            "repository": "https://github.com/simeonoff/tree-sitter-sassdoc",
+            "rev": "38abe86eac15ed8d668de04df963ef0a4c220cfe",
+            "path": null
+          },
           "scss": {
+            "repository": "https://github.com/simeonoff/tree-sitter-scss",
+            "rev": "3f918284a73a54b53e4f326b0aa8c74ccbf4ee4d",
             "repository": "https://github.com/simeonoff/tree-sitter-scss",
             "rev": "3f918284a73a54b53e4f326b0aa8c74ccbf4ee4d",
             "path": null
@@ -817,6 +1106,10 @@
         },
         "language_servers": {
           "scss-lsp": {
+            "language": null,
+            "languages": [
+              "SCSS"
+            ],
             "language": null,
             "languages": [
               "SCSS"
@@ -839,6 +1132,7 @@
         },
         "context_servers": {},
         "agent_servers": {},
+        "agent_servers": {},
         "slash_commands": {},
         "snippets": null,
         "capabilities": []
@@ -853,6 +1147,7 @@
         "schema_version": 1,
         "description": "TOML support.",
         "repository": "https://github.com/zed-extensions/toml",
+        "repository": "https://github.com/zed-extensions/toml",
         "authors": [
           "Max Brunsfeld <max@zed.dev>",
           "Ammar Arif <evergreenkary@gmail.com>"
@@ -860,8 +1155,11 @@
         "lib": {
           "kind": null,
           "version": null
+          "kind": null,
+          "version": null
         },
         "themes": [],
+        "icon_themes": [],
         "icon_themes": [],
         "languages": [
           "languages/toml"
@@ -876,7 +1174,10 @@
         "language_servers": {},
         "context_servers": {},
         "agent_servers": {},
+        "agent_servers": {},
         "slash_commands": {},
+        "snippets": null,
+        "capabilities": []
         "snippets": null,
         "capabilities": []
       },
@@ -907,6 +1208,12 @@
       "path": "icon_themes/colored-zed-icons-theme.json"
     }
   },
+  "icon_themes": {
+    "Material Icon Theme": {
+      "extension": "material-icon-theme",
+      "path": "icon_themes/material-icon-theme.json"
+    }
+  },
   "languages": {
     "Astro": {
       "extension": "astro",
@@ -915,6 +1222,8 @@
         "path_suffixes": [
           "astro"
         ],
+        "first_line_pattern": null,
+        "modeline_aliases": []
         "first_line_pattern": null,
         "modeline_aliases": []
       },
@@ -930,6 +1239,8 @@
         ],
         "first_line_pattern": null,
         "modeline_aliases": []
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "c_sharp"
@@ -942,7 +1253,11 @@
           "Dockerfile",
           "Containerfile",
           "dockerfile"
+          "Containerfile",
+          "dockerfile"
         ],
+        "first_line_pattern": null,
+        "modeline_aliases": []
         "first_line_pattern": null,
         "modeline_aliases": []
       },
@@ -958,6 +1273,8 @@
         ],
         "first_line_pattern": null,
         "modeline_aliases": []
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "embedded_template"
@@ -968,8 +1285,11 @@
       "matcher": {
         "path_suffixes": [
           "gitattributes",
+          "gitattributes",
           ".gitattributes"
         ],
+        "first_line_pattern": null,
+        "modeline_aliases": []
         "first_line_pattern": null,
         "modeline_aliases": []
       },
@@ -982,10 +1302,15 @@
       "matcher": {
         "path_suffixes": [
           "config.worktree",
+          "config.worktree",
           ".gitconfig",
           ".gitmodules",
           ".lfsconfig"
+          ".gitmodules",
+          ".lfsconfig"
         ],
+        "first_line_pattern": null,
+        "modeline_aliases": []
         "first_line_pattern": null,
         "modeline_aliases": []
       },
@@ -1002,6 +1327,11 @@
           ".dockerignore",
           ".eslintignore",
           ".fdignore",
+          ".containerignore",
+          ".cursorignore",
+          ".dockerignore",
+          ".eslintignore",
+          ".fdignore",
           ".gitignore",
           ".git-blame-ignore-revs",
           ".ignore",
@@ -1009,7 +1339,15 @@
           ".prettierignore",
           ".rgignore",
           ".vscodeignore"
+          ".git-blame-ignore-revs",
+          ".ignore",
+          ".npmignore",
+          ".prettierignore",
+          ".rgignore",
+          ".vscodeignore"
         ],
+        "first_line_pattern": null,
+        "modeline_aliases": []
         "first_line_pattern": null,
         "modeline_aliases": []
       },
@@ -1023,6 +1361,8 @@
         "path_suffixes": [
           "git-rebase-todo"
         ],
+        "first_line_pattern": null,
+        "modeline_aliases": []
         "first_line_pattern": null,
         "modeline_aliases": []
       },
@@ -1040,9 +1380,50 @@
         ],
         "first_line_pattern": null,
         "modeline_aliases": []
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "html"
+    },
+    "HTML+ERB": {
+      "extension": "ruby",
+      "path": "languages/html-erb",
+      "matcher": {
+        "path_suffixes": [
+          "html.erb"
+        ],
+        "first_line_pattern": null,
+        "modeline_aliases": []
+      },
+      "hidden": false,
+      "grammar": "embedded_template"
+    },
+    "JS+ERB": {
+      "extension": "ruby",
+      "path": "languages/js-erb",
+      "matcher": {
+        "path_suffixes": [
+          "js.erb"
+        ],
+        "first_line_pattern": null,
+        "modeline_aliases": []
+      },
+      "hidden": false,
+      "grammar": "embedded_template"
+    },
+    "Java": {
+      "extension": "java",
+      "path": "languages/java",
+      "matcher": {
+        "path_suffixes": [
+          "java"
+        ],
+        "first_line_pattern": null,
+        "modeline_aliases": []
+      },
+      "hidden": false,
+      "grammar": "java"
     },
     "HTML+ERB": {
       "extension": "ruby",
@@ -1092,7 +1473,10 @@
           "Justfile",
           "JUSTFILE",
           "just"
+          "just"
         ],
+        "first_line_pattern": null,
+        "modeline_aliases": []
         "first_line_pattern": null,
         "modeline_aliases": []
       },
@@ -1107,6 +1491,8 @@
           "kt",
           "kts"
         ],
+        "first_line_pattern": null,
+        "modeline_aliases": []
         "first_line_pattern": null,
         "modeline_aliases": []
       },
@@ -1125,6 +1511,8 @@
           "mk",
           "mak"
         ],
+        "first_line_pattern": "^#!.*\\b(?:make -f)\\b",
+        "modeline_aliases": []
         "first_line_pattern": "^#!.*\\b(?:make -f)\\b",
         "modeline_aliases": []
       },
@@ -1153,6 +1541,8 @@
         ],
         "first_line_pattern": null,
         "modeline_aliases": []
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "rbs"
@@ -1179,6 +1569,7 @@
           "gemspec",
           "thor",
           "irbrc",
+          "irbrc",
           "pryrc",
           "simplecov",
           "Steepfile",
@@ -1204,9 +1595,24 @@
         ],
         "first_line_pattern": "^#!.*\\bruby\\b",
         "modeline_aliases": []
+        "first_line_pattern": "^#!.*\\bruby\\b",
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "ruby"
+    },
+    "SASS": {
+      "extension": "scss",
+      "path": "languages/sass",
+      "matcher": {
+        "path_suffixes": [
+          "sass"
+        ],
+        "first_line_pattern": null,
+        "modeline_aliases": []
+      },
+      "hidden": false,
+      "grammar": "sass"
     },
     "SASS": {
       "extension": "scss",
@@ -1228,6 +1634,8 @@
         "path_suffixes": [
           "scss"
         ],
+        "first_line_pattern": null,
+        "modeline_aliases": []
         "first_line_pattern": null,
         "modeline_aliases": []
       },
@@ -1257,6 +1665,8 @@
         ],
         "first_line_pattern": null,
         "modeline_aliases": []
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "toml"
@@ -1269,6 +1679,8 @@
           "yml.erb",
           "yaml.erb"
         ],
+        "first_line_pattern": null,
+        "modeline_aliases": []
         "first_line_pattern": null,
         "modeline_aliases": []
       },

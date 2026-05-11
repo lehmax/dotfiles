@@ -1,0 +1,25 @@
+#!/bin/bash
+
+{{ if eq .chezmoi.os "linux" -}}
+# Use chezmoi's authoritative home dir to find home-manager-installed zsh,
+# so we don't depend on $HOME or PATH being correctly set.
+ZSH_PATH="{{ .chezmoi.homeDir }}/.nix-profile/bin/zsh"
+
+if [ ! -x "$ZSH_PATH" ]; then
+  echo "zsh not found at $ZSH_PATH, skipping default shell change."
+  exit 0
+fi
+
+if [ ! -f /etc/shells ] || ! grep -qx "$ZSH_PATH" /etc/shells; then
+  echo "Adding $ZSH_PATH to /etc/shells..."
+  echo "$ZSH_PATH" | sudo tee -a /etc/shells > /dev/null
+fi
+
+CURRENT_SHELL="$(getent passwd "$USER" | cut -d: -f7)"
+if [ "$CURRENT_SHELL" = "$ZSH_PATH" ]; then
+  echo "Default shell is already zsh ($ZSH_PATH)."
+else
+  echo "Changing default shell from $CURRENT_SHELL to $ZSH_PATH..."
+  sudo chsh -s "$ZSH_PATH" "$USER"
+fi
+{{ end -}}

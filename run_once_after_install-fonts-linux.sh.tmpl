@@ -1,0 +1,32 @@
+{{- if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+
+# aria2 comes from home-manager (user nix profile).
+# fontconfig (fc-cache) comes from the system package manager so it picks up
+# /etc/fonts/fonts.conf and avoids the "Cannot load default config" error
+# that nix-installed fontconfig hits without FONTCONFIG_FILE.
+NIX_BIN="{{ .chezmoi.homeDir }}/.nix-profile/bin"
+
+if [ ! -x "$NIX_BIN/aria2c" ]; then
+  printf "aria2c not found in %s, skipping font installation.\n" "$NIX_BIN"
+  exit 0
+fi
+
+mkdir -p {{ .chezmoi.homeDir }}/.local/share/fonts
+
+"$NIX_BIN/aria2c" -Z -d {{ .chezmoi.homeDir }}/.local/share/fonts/ \
+  https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/DejaVuSansMono/Bold-Italic/DejaVuSansMNerdFont-BoldOblique.ttf \
+  https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/DejaVuSansMono/Bold/DejaVuSansMNerdFont-Bold.ttf \
+  https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/DejaVuSansMono/Italic/DejaVuSansMNerdFont-Oblique.ttf \
+  https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/DejaVuSansMono/Regular/DejaVuSansMNerdFont-Regular.ttf \
+  https://github.com/kencrocken/FiraCodeiScript/raw/master/FiraCodeiScript-Bold.ttf \
+  https://github.com/kencrocken/FiraCodeiScript/raw/master/FiraCodeiScript-Italic.ttf \
+  https://github.com/kencrocken/FiraCodeiScript/raw/master/FiraCodeiScript-Regular.ttf \
+  https://github.com/samuelngs/apple-emoji-linux/releases/download/v18.4/AppleColorEmoji.ttf
+
+if command -v fc-cache >/dev/null 2>&1; then
+  fc-cache || true
+else
+  printf "fc-cache not found, fonts will be picked up on next login.\n"
+fi
+{{ end -}}

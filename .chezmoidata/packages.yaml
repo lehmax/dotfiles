@@ -1,45 +1,24 @@
 packages:
   darwin:
     brews:
-      - bottom
-      - chruby
-      - delta
-      - diff-so-fancy
-      - difftastic
-      - dust
-      - eza
-      - fastfetch
-      - fd
-      - fnm
-      - git
-      - jq
-      - mas
-      - neovim
-      - ripgrep
-      - ruby-install
-      - scrcpy
-      - sd
-      - tealdeer
-      - tmux
+      - mise
       - watchman
-      - wget
-      - gitui
+
     casks:
       - alt-tab
       - altserver
       - android-studio
       - bruno
+      - android-studio-preview@canary
       - chromium
       - cleanshot
       - discord
       - figma
       - finicky
       - firefox@developer-edition
+      - ghostty
       - google-chrome
       - google-chrome@canary
-      - itsycal
-      - jordanbaird-ice
-      - kitty
       - localsend
       - maccy
       - microsoft-teams
@@ -49,6 +28,7 @@ packages:
       - orbstack
       - raycast
       - rocket
+      - sequel-ace
       - sublime-merge@dev
       - the-unarchiver
       - tomatobar
@@ -61,3 +41,50 @@ packages:
       - 411643860 # DaisyDisk
       - 1186187538 # Ethernet Status
       - 497799835 # Xcode
+
+  linux:
+    apt:
+      # - age
+      # - bottom
+      # - bruno
+      # - chromium
+      # - containerd.io
+      # - cursor
+      # - docker-buildx-plugin
+      # - docker-ce
+      # - docker-ce-cli
+      # - docker-compose-plugin
+      # - docker-ctop
+      # - eza
+      # - fastfetch
+      # - fd-find
+      # - gh
+      # - kitty
+      # - neovim
+      # - ripgrep
+      # - rustup
+      # - sd
+      # - snapd
+      # - tealdeer
+      # - tmux
+      # - tree-sitter
+      # - sublime-merge
+      # - zsh
+
+    dnf:
+      - docker
+      - ghostty
+      - kitty
+      # Depdencies for ruby
+      - libyaml-devel
+      - perl
+      - zlib-devel
+
+    snaps:
+      #- localsend
+
+    pacman:
+      - docker
+      - docker-buildx
+      - docker-compose
+      - fontconfig

@@ -22,3 +22,4 @@
   pf = push --force-with-lease
   superrestore = "!f() { git restore --staged \"$1\" && git restore \"$1\"; }; f"
   sr = superrestore
+

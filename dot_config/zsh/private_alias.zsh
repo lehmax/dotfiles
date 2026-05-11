@@ -9,14 +9,16 @@ alias unquarantine="sudo xattr -rd com.apple.quarantine"
 alias :q='exit'
 alias b='bun'
 alias cc='/usr/local/bin/g++-11'
+alias god-mode='claude --dangerously-skip-permissions --effort high'
 alias CC='/usr/local/bin/g++-11'
 alias cz="chezmoi"
+alias nix-diff='nvd diff $(home-manager generations | head -2 | tail -1 | sed "s/.*-> //") $(home-manager generations | head -1 | sed "s/.*-> //" | sed "s/ .*//")'
+alias nix-update='rm -rf ~/.cache/nix/tarball-cache-v2 && OLD_GEN="$(readlink -f ~/.local/state/nix/profiles/home-manager)" && nix flake update --flake "$HOME/.local/share/chezmoi" && home-manager switch --flake "$HOME/.local/share/chezmoi#aarch64-darwin" && NEW_GEN="$(readlink -f ~/.local/state/nix/profiles/home-manager)" && if [ "$OLD_GEN" = "$NEW_GEN" ]; then echo "No changes."; else nvd diff "$OLD_GEN" "$NEW_GEN"; fi'
 alias dc='docker-compose'
 alias emacs='emacs -nw'
-alias find='fd'
 alias fuck='pkill -9'
 alias g='git'
-alias grep='rg'
+alias hollywood='docker run --rm -it bcbcarl/hollywood'
 alias j='just'
 alias la='eza -a'
 alias lal='eza -la'
@@ -36,8 +38,8 @@ alias sv='sudo -E nvim'
 alias t='tmux'
 alias ta='tmux attach'
 alias td='tmux detach'
-alias tn='tmux new'
 alias tch='tmux clear-history'
+alias tn='tmux new'
 
 # Shortcuts for virtual environment management
 alias uvv='uv venv .venv'              # Create a venv in the current project
@@ -61,5 +63,7 @@ alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias y='yarn'
+
+alias android-emulator='emulator -avd pixel_9_16kb -no-snapshot'
 
 alias gb='cd ~/project/genybet'

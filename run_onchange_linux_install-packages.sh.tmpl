@@ -1,0 +1,69 @@
+#!/bin/bash
+
+{{ if eq .chezmoi.os "linux" -}}
+{{   if eq .chezmoi.osRelease.id "debian" "ubuntu" -}}
+# Only run if we have apt-get
+if command -v apt-get &>/dev/null; then
+  echo "Detected Debian/Ubuntu system. Installing packages via apt..."
+
+  # Update apt cache
+  sudo apt-get update
+
+printf "\nStarting apt packages installation...\n"
+  {{ range .packages.linux.apt -}}
+  sudo apt-get install -y {{ . | quote }}
+  {{ end -}}
+
+  echo "Apt packages installation complete."
+
+  printf "\nRemoving unused packages...\n"
+  sudo apt-get autoremove -y
+else
+  echo "apt-get not found, skipping apt package installation."
+fi
+{{   else if eq .chezmoi.osRelease.id "fedora" "rhel" "centos" -}}
+# Only run if we have dnf
+if command -v dnf &>/dev/null; then
+  echo "Detected Fedora/RHEL system. Installing packages via dnf..."
+
+  printf "\nStarting dnf packages installation...\n"
+  {{ range .packages.linux.dnf -}}
+  sudo dnf install -y {{ . | quote }}
+  {{ end -}}
+
+  echo "Dnf packages installation complete."
+
+  printf "\nRemoving unused packages...\n"
+  sudo dnf autoremove -y
+else
+  echo "dnf not found, skipping dnf package installation."
+fi
+{{   else if eq .chezmoi.osRelease.id "arch" -}}
+# Only run if we have pacman
+if command -v pacman &>/dev/null; then
+  echo "Detected Arch system. Installing packages via pacman..."
+
+  printf "\nSyncing pacman package databases...\n"
+  sudo pacman -Sy --noconfirm
+
+  printf "\nStarting pacman packages installation...\n"
+  sudo pacman -S --needed --noconfirm {{ range .packages.linux.pacman }}{{ . | quote }} {{ end }}
+
+  echo "Pacman packages installation complete."
+else
+  echo "pacman not found, skipping pacman package installation."
+fi
+{{   end -}}
+
+if command -v snap &>/dev/null; then
+  printf "\nStarting snaps installation...\n"
+  {{ range .packages.linux.snaps -}}
+  sudo snap install {{ . | quote }}
+  {{ end -}}
+  printf "\nSnaps installation complete\n"
+fi
+
+# Install Zed
+curl -f https://zed.dev/install.sh | sh
+
+{{ end -}}
