@@ -131,6 +131,10 @@ run = ['move-node-to-workspace 8', 'layout tiles']
 if.app-id = 'com.apple.Music'
 run = ['move-node-to-workspace 9', 'layout tiles']
 
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+run = ['move-node-to-workspace 9', 'layout tiles']
+
 # Applications en FLOATING
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
@@ -170,41 +174,41 @@ run = ['move-node-to-workspace 3', 'layout tiles']
 # Fallback value (if you omit the key): mode.main.binding = {}
 [mode.main.binding]
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-    cmd-left = 'focus left'
-    cmd-down = 'focus down'
-    cmd-up = 'focus up'
-    cmd-right = 'focus right'
+# See: https://nikitabobko.github.io/AeroSpace/commands#focus
+cmd-left = 'focus left'
+cmd-down = 'focus down'
+cmd-up = 'focus up'
+cmd-right = 'focus right'
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#move
-    cmd-shift-left = 'move left'
-    cmd-shift-down = 'move down'
-    cmd-shift-up = 'move up'
-    cmd-shift-right = 'move right'
+# See: https://nikitabobko.github.io/AeroSpace/commands#move
+cmd-shift-left = 'move left'
+cmd-shift-down = 'move down'
+cmd-shift-up = 'move up'
+cmd-shift-right = 'move right'
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-    cmd-1 = 'workspace 1'
-    cmd-2 = 'workspace 2'
-    cmd-3 = 'workspace 3'
-    cmd-4 = 'workspace 4'
-    cmd-5 = 'workspace 5'
-    cmd-6 = 'workspace 6'
-    cmd-7 = 'workspace 7'
-    cmd-8 = 'workspace 8'
-    cmd-9 = 'workspace 9'
+# See: https://nikitabobko.github.io/AeroSpace/commands#workspace
+cmd-1 = 'workspace 1'
+cmd-2 = 'workspace 2'
+cmd-3 = 'workspace 3'
+cmd-4 = 'workspace 4'
+cmd-5 = 'workspace 5'
+cmd-6 = 'workspace 6'
+cmd-7 = 'workspace 7'
+cmd-8 = 'workspace 8'
+cmd-9 = 'workspace 9'
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-    cmd-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
-    cmd-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
-    cmd-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
-    cmd-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
-    cmd-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
-    cmd-shift-6 = 'move-node-to-workspace 6 --focus-follows-window'
-    cmd-shift-7 = 'move-node-to-workspace 7 --focus-follows-window'
-    cmd-shift-8 = 'move-node-to-workspace 8 --focus-follows-window'
-    cmd-shift-9 = 'move-node-to-workspace 9 --focus-follows-window'
+# See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
+cmd-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
+cmd-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
+cmd-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
+cmd-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
+cmd-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
+cmd-shift-6 = 'move-node-to-workspace 6 --focus-follows-window'
+cmd-shift-7 = 'move-node-to-workspace 7 --focus-follows-window'
+cmd-shift-8 = 'move-node-to-workspace 8 --focus-follows-window'
+cmd-shift-9 = 'move-node-to-workspace 9 --focus-follows-window'
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-    alt-shift-f = 'layout tiles floating'
-    alt-shift-space = 'layout floating tiling'
-    alt-shift-t = 'layout accordion tiles'
+# See: https://nikitabobko.github.io/AeroSpace/commands#mode
+alt-shift-f = 'layout tiles floating'
+alt-shift-space = 'layout floating tiling'
+alt-shift-t = 'layout accordion tiles'
