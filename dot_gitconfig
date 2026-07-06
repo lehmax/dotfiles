@@ -1,6 +1,6 @@
 [user]
 	name = Maxime Leherquer
-	email = m.leherquer-ext@genybet.fr
+	email = m.leherquer@genybet.fr
 
 [include]
   path = .gitalias
