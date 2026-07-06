@@ -37,8 +37,6 @@
     pkgs.iperf3
     pkgs.jless
     pkgs.jq
-    pkgs.wireguard
-    pkgs.wireguard-tools
     pkgs.just
     pkgs.mosh
     pkgs.neovim
