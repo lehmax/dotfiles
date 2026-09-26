@@ -7,40 +7,57 @@
         ]
       },
       "locked": {
-        "lastModified": 1788651960,
-        "narHash": "sha256-v9wJd32eZ2bvhBzVOd7TIjLQd011P7nwOhjKtWlci5I=",
+        "lastModified": 1789765459,
+        "narHash": "sha256-voJJ5IZR4w2149u2Jm/j2zifeWROlpZQ+JzmCQwjgn8=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "2c0350c759688177331b8f5242311fae8877bdb3",
+        "rev": "17903129f47656fa4d07e78ad87f6592ff4f2527",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "2c0350c759688177331b8f5242311fae8877bdb3",
+        "rev": "17903129f47656fa4d07e78ad87f6592ff4f2527",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1788889362,
-        "narHash": "sha256-5m3PzW9J8c8nSJpF2wr02+0GuGkxspk5dn3osGP0Rvk=",
+        "lastModified": 1789805632,
+        "narHash": "sha256-MrFRp+jItaTR7Q1i+k8LMcwXKoEEI8ERzl1iFmZ9ZKo=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "432f3d6a3b3a1b8d6238bab014b8e214eb1b1d30",
+        "rev": "36f226397ba22896501e8bfab098c2c682802ab4",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "432f3d6a3b3a1b8d6238bab014b8e214eb1b1d30",
+        "rev": "36f226397ba22896501e8bfab098c2c682802ab4",
+        "type": "github"
+      }
+    },
+    "nixpkgs-fresh": {
+      "locked": {
+        "lastModified": 1790390834,
+        "narHash": "sha256-StRyS/lFHtIw/UgJk+xo+HA66mtoWeDUbkJdvf2Byn4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "d54020a6ac3211e9f4201631bdf67678818c0cdf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
         "type": "github"
       }
     },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "nixpkgs-fresh": "nixpkgs-fresh"
       }
     }
   },

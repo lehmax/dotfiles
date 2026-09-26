@@ -6,15 +6,20 @@
   # newest nixpkgs-unstable / home-manager commits older than one week, so a
   # compromised upstream release has a week to be detected and yanked before it
   # can land here. Keep the `github:owner/repo/<rev>` shape so the rewrite works.
+  #
+  # Exception: `nixpkgs-fresh` floats on nixpkgs-unstable with no cooldown and
+  # is only used for packages that release too often for a week-old pin to be
+  # useful (see `freshPackages` below). `nix flake update` bumps it to HEAD.
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/432f3d6a3b3a1b8d6238bab014b8e214eb1b1d30";
+    nixpkgs.url = "github:NixOS/nixpkgs/36f226397ba22896501e8bfab098c2c682802ab4";
+    nixpkgs-fresh.url = "github:NixOS/nixpkgs?ref=nixpkgs-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/2c0350c759688177331b8f5242311fae8877bdb3";
+      url = "github:nix-community/home-manager/17903129f47656fa4d07e78ad87f6592ff4f2527";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, nixpkgs-fresh, home-manager, ... }:
     let
       supportedSystems = [
         "aarch64-darwin"
@@ -23,13 +28,26 @@
         "aarch64-linux"
       ];
       username = (import ./user.nix).username;
+      freshPackages = [ "claude-code" ];
+      freshOverlay = system: final: prev:
+        let
+          fresh = import nixpkgs-fresh {
+            inherit system;
+            config.allowUnfreePredicate = pkg:
+              builtins.elem (nixpkgs.lib.getName pkg) freshPackages;
+          };
+        in
+        nixpkgs.lib.genAttrs freshPackages (name: fresh.${name});
     in
     {
       homeConfigurations = builtins.listToAttrs (map (system: {
         name = "${username}@${system}";
         value = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
-          modules = [ ./home.nix ];
+          modules = [
+            ./home.nix
+            { nixpkgs.overlays = [ (freshOverlay system) ]; }
+          ];
           extraSpecialArgs = { inherit username; };
         };
       }) supportedSystems);

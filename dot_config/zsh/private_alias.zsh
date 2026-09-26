@@ -31,7 +31,7 @@ function nix-update() {
   echo "Pinning to commits >=7 days old (cutoff $cutoff):"
   echo "  nixpkgs       ${nix_rev}"
   echo "  home-manager  ${hm_rev}"
-  sed -i.bak -E "s#(github:NixOS/nixpkgs/)[^\"]+#\1${nix_rev}#" "$flake_dir/flake.nix" || return
+  sed -i.bak -E "s#(^ *nixpkgs\.url = \"github:NixOS/nixpkgs/)[^\"]+#\1${nix_rev}#" "$flake_dir/flake.nix" || return
   sed -i.bak -E "s#github:nix-community/home-manager/?[^\"]*#github:nix-community/home-manager/${hm_rev}#" "$flake_dir/flake.nix" || return
   rm -f "$flake_dir/flake.nix.bak"
 
