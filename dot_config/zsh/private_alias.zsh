@@ -10,12 +10,42 @@ alias :q='exit'
 alias b='bun'
 alias cc='/usr/local/bin/g++-11'
 alias god-mode='claude --dangerously-skip-permissions --effort high'
+alias godex='codex --dangerously-bypass-approvals-and-sandbox -c model_reasoning_effort="high" --search'
 alias CC='/usr/local/bin/g++-11'
 alias cz="chezmoi"
 alias nix-diff='nvd diff $(home-manager generations | head -2 | tail -1 | sed "s/.*-> //") $(home-manager generations | head -1 | sed "s/.*-> //" | sed "s/ .*//")'
-alias nix-reinstall='home-manager switch --impure --flake "$HOME/.local/share/chezmoi#$(nix eval --impure --raw --expr "builtins.currentSystem")"'
+alias nix-reinstall='home-manager switch --flake "path:$HOME/.local/share/chezmoi#$USER@$(nix eval --impure --raw --expr "builtins.currentSystem")"'
 alias nix-clean='nix profile wipe-history --profile ~/.local/state/nix/profiles/home-manager --older-than 30d && nix profile wipe-history --profile ~/.local/state/nix/profiles/profile --older-than 30d'
-alias nix-update='rm -rf ~/.cache/nix/tarball-cache-v2 && OLD_GEN="$(readlink -f ~/.local/state/nix/profiles/home-manager)" && nix flake update --flake "$HOME/.local/share/chezmoi" && home-manager switch --impure --flake "$HOME/.local/share/chezmoi#aarch64-darwin" && NEW_GEN="$(readlink -f ~/.local/state/nix/profiles/home-manager)" && if [ "$OLD_GEN" = "$NEW_GEN" ]; then echo "No changes."; else nvd diff "$OLD_GEN" "$NEW_GEN"; fi && nix profile wipe-history --profile ~/.local/state/nix/profiles/home-manager --older-than 30d && nix profile wipe-history --profile ~/.local/state/nix/profiles/profile --older-than 30d'
+function nix-update() {
+  rm -rf ~/.cache/nix/tarball-cache-v2
+  local flake_dir old_gen new_gen cutoff nix_rev hm_rev
+  flake_dir="$HOME/.local/share/chezmoi"
+
+  cutoff="$(date -u -v-7d +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || date -u -d '7 days ago' +%Y-%m-%dT%H:%M:%SZ)"
+  nix_rev="$(gh api "repos/NixOS/nixpkgs/commits?sha=nixpkgs-unstable&until=$cutoff&per_page=1" --jq '.[0].sha')" || return
+  hm_rev="$(gh api "repos/nix-community/home-manager/commits?sha=master&until=$cutoff&per_page=1" --jq '.[0].sha')" || return
+  if [[ ! "$nix_rev" =~ ^[0-9a-f]{40}$ || ! "$hm_rev" =~ ^[0-9a-f]{40}$ ]]; then
+    echo "nix-update: could not resolve commits older than $cutoff (nixpkgs='$nix_rev' home-manager='$hm_rev')" >&2
+    return 1
+  fi
+  echo "Pinning to commits >=7 days old (cutoff $cutoff):"
+  echo "  nixpkgs       ${nix_rev}"
+  echo "  home-manager  ${hm_rev}"
+  sed -i.bak -E "s#(^ *nixpkgs\.url = \"github:NixOS/nixpkgs/)[^\"]+#\1${nix_rev}#" "$flake_dir/flake.nix" || return
+  sed -i.bak -E "s#github:nix-community/home-manager/?[^\"]*#github:nix-community/home-manager/${hm_rev}#" "$flake_dir/flake.nix" || return
+  rm -f "$flake_dir/flake.nix.bak"
+
+  old_gen="$(readlink -f ~/.local/state/nix/profiles/home-manager)"
+  nix flake update --flake "path:$flake_dir" || return
+  nix-reinstall || return
+  new_gen="$(readlink -f ~/.local/state/nix/profiles/home-manager)"
+  if [ "$old_gen" = "$new_gen" ]; then
+    echo "No changes."
+  else
+    nvd diff "$old_gen" "$new_gen"
+  fi
+  nix-clean
+}
 alias dc='docker-compose'
 alias emacs='emacs -nw'
 alias fuck='pkill -9'
@@ -69,3 +99,11 @@ alias y='yarn'
 alias android-emulator='emulator -avd pixel_9_16kb -no-snapshot'
 
 alias gb='cd ~/project/genybet'
+
+# Fuzzy-jump into a git worktree (needs fzf). Complements the wt/wtl/wtp git aliases.
+function wtcd() {
+  git rev-parse --is-inside-work-tree >/dev/null 2>&1 || return
+  local dir
+  dir=$(git worktree list --porcelain | awk '/^worktree /{print substr($0,10)}' | fzf) || return
+  [[ -n $dir ]] && cd "$dir"
+}

@@ -15,6 +15,9 @@ fi
 
 printf "\nStarting Homebrew packages installation...\n"
 brew bundle --file=/dev/stdin <<EOF
+{{- range .packages.darwin.taps }}
+tap {{ .name | quote }}, {{ .url | quote }}
+{{- end }}
 {{- range .packages.darwin.brews }}
 brew {{ . | quote }}
 {{- end }}
@@ -48,11 +51,17 @@ if ! command -v cargo &>/dev/null; then
   printf "Rustup installation completed.\n"
 fi
 
-if [ ! -f "/usr/local/bin/node" ]; then
-  printf "\nCreating symlink for Node.js in /usr/local/bin...\n"
-  sudo ln -s "$(which node)" /usr/local/bin/node
-  printf "Symlink for Node.js created.\n"
-fi
+NODE_SHIM="$HOME/.local/share/mise/shims/node"
+NPX_SHIM="$HOME/.local/share/mise/shims/npx"
+for pair in "node:$NODE_SHIM" "npx:$NPX_SHIM"; do
+  name="${pair%%:*}"
+  target="${pair#*:}"
+  link="/usr/local/bin/$name"
+  if [ ! -L "$link" ] || [ "$(readlink "$link")" != "$target" ]; then
+    printf "\n(Re)creating symlink for %s -> %s...\n" "$name" "$target"
+    sudo ln -sfn "$target" "$link"
+  fi
+done
 
 printf "\nInstallation script completed.\n"
 {{ end -}}

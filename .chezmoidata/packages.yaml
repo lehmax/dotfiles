@@ -1,5 +1,9 @@
 packages:
   darwin:
+    taps:
+      - name: duongductrong/snapzy
+        url: https://github.com/duongductrong/Snapzy
+
     brews:
       - mise
       - watchman
@@ -12,8 +16,8 @@ packages:
       - bruno
       - android-studio-preview@canary
       - chromium
-      - cleanshot
       - discord
+      - duongductrong/snapzy/snapzy
       - figma
       - finicky
       - firefox@developer-edition

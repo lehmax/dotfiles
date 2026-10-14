@@ -2,3 +2,5 @@ flake.nix
 flake.lock
 home.nix
 result
+user.nix
+.local/share/todo/**

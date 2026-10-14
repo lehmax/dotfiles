@@ -1,15 +1,25 @@
 {
   description = "Home Manager configuration";
 
+  # Inputs are pinned to commits at least 7 days old as a supply-chain
+  # cooldown: the `nix-update` shell function rewrites the revs below to the
+  # newest nixpkgs-unstable / home-manager commits older than one week, so a
+  # compromised upstream release has a week to be detected and yanked before it
+  # can land here. Keep the `github:owner/repo/<rev>` shape so the rewrite works.
+  #
+  # Exception: `nixpkgs-fresh` floats on nixpkgs-unstable with no cooldown and
+  # is only used for packages that release too often for a week-old pin to be
+  # useful (see `freshPackages` below). `nix flake update` bumps it to HEAD.
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/36f226397ba22896501e8bfab098c2c682802ab4";
+    nixpkgs-fresh.url = "github:NixOS/nixpkgs?ref=nixpkgs-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/17903129f47656fa4d07e78ad87f6592ff4f2527";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, nixpkgs-fresh, home-manager, ... }:
     let
       supportedSystems = [
         "aarch64-darwin"
@@ -17,16 +27,27 @@
         "x86_64-linux"
         "aarch64-linux"
       ];
-    in
-    let
-      username = builtins.getEnv "USER";
+      username = (import ./user.nix).username;
+      freshPackages = [ "claude-code" ];
+      freshOverlay = system: final: prev:
+        let
+          fresh = import nixpkgs-fresh {
+            inherit system;
+            config.allowUnfreePredicate = pkg:
+              builtins.elem (nixpkgs.lib.getName pkg) freshPackages;
+          };
+        in
+        nixpkgs.lib.genAttrs freshPackages (name: fresh.${name});
     in
     {
       homeConfigurations = builtins.listToAttrs (map (system: {
-        name = system;
+        name = "${username}@${system}";
         value = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
-          modules = [ ./home.nix ];
+          modules = [
+            ./home.nix
+            { nixpkgs.overlays = [ (freshOverlay system) ]; }
+          ];
           extraSpecialArgs = { inherit username; };
         };
       }) supportedSystems);
