@@ -28,8 +28,7 @@
   "claudeCode.usePythonEnvironment": false,
   "security.workspace.trust.untrustedFiles": "open",
   "diffEditor.ignoreTrimWhitespace": false,
-  "gitlens.ai.model": "vscode",
-  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
   "js/ts.experimental.useTsgo": false,
   "diffEditor.hideUnchangedRegions.enabled": true,
+  "workbench.colorTheme": "Arrakis Day",
 }

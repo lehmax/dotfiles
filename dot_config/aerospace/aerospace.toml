@@ -69,7 +69,7 @@ automatically-unhide-macos-hidden-apps = false
   3 = 'main'      # Divers (Bruno, etc.)
   4 = 'main'      # Dev mobile (Xcode)
   5 = 'main'      # Dev mobile (Android Studio)
-  6 = 'secondary' # Finicky / Chrome Canary / Firefox Developer
+  6 = 'secondary' # Finicky / Chrome / Firefox Developer
   7 = 'secondary' # Simulateurs Xcode / Émulateurs Android
   8 = 'secondary' # Musique / Teams
   9 = 'secondary' # Divers Floating
@@ -99,13 +99,18 @@ run = ['move-node-to-workspace 3', 'layout tiles']
 if.app-id = 'com.apple.dt.Xcode'
 run = ['move-node-to-workspace 4', 'layout tiles']
 
+# Device Hub (fenêtre Devices d'Xcode, app à part entière)
+[[on-window-detected]]
+if.app-id = 'com.apple.dt.Devices'
+run = ['layout tiling', 'move-node-to-workspace 3', 'layout tiles']
+
 [[on-window-detected]]
 if.app-id = 'com.google.android.studio'
 if.window-title-regex-substring = '^(?!Running Devices).*$'
 run = ['move-node-to-workspace 5', 'layout tiles']
 
 [[on-window-detected]]
-if.app-id = 'com.google.Chrome.canary'
+if.app-id = 'com.google.Chrome'
 run = ['move-node-to-workspace 6', 'layout tiles']
 
 [[on-window-detected]]
@@ -187,28 +192,28 @@ cmd-shift-up = 'move up'
 cmd-shift-right = 'move right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-cmd-1 = 'workspace 1'
-cmd-2 = 'workspace 2'
-cmd-3 = 'workspace 3'
-cmd-4 = 'workspace 4'
-cmd-5 = 'workspace 5'
-cmd-6 = 'workspace 6'
-cmd-7 = 'workspace 7'
-cmd-8 = 'workspace 8'
-cmd-9 = 'workspace 9'
+ctrl-1 = 'workspace 1'
+ctrl-2 = 'workspace 2'
+ctrl-3 = 'workspace 3'
+ctrl-4 = 'workspace 4'
+ctrl-5 = 'workspace 5'
+ctrl-6 = 'workspace 6'
+ctrl-7 = 'workspace 7'
+ctrl-8 = 'workspace 8'
+ctrl-9 = 'workspace 9'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-cmd-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
-cmd-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
-cmd-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
-cmd-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
-cmd-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
-cmd-shift-6 = 'move-node-to-workspace 6 --focus-follows-window'
-cmd-shift-7 = 'move-node-to-workspace 7 --focus-follows-window'
-cmd-shift-8 = 'move-node-to-workspace 8 --focus-follows-window'
-cmd-shift-9 = 'move-node-to-workspace 9 --focus-follows-window'
+ctrl-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
+ctrl-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
+ctrl-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
+ctrl-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
+ctrl-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
+ctrl-shift-6 = 'move-node-to-workspace 6 --focus-follows-window'
+ctrl-shift-7 = 'move-node-to-workspace 7 --focus-follows-window'
+ctrl-shift-8 = 'move-node-to-workspace 8 --focus-follows-window'
+ctrl-shift-9 = 'move-node-to-workspace 9 --focus-follows-window'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-alt-shift-f = 'layout tiles floating'
-alt-shift-space = 'layout floating tiling'
-alt-shift-t = 'layout accordion tiles'
+ctrl-shift-f = 'layout tiles floating'
+ctrl-shift-space = 'layout floating tiling'
+ctrl-shift-t = 'layout accordion tiles'

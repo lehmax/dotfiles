@@ -1,7 +1,7 @@
 // Learn more about configuration options: https://github.com/johnste/finicky/wiki/Configuration
 
 export default {
-  defaultBrowser: "Firefox Developer Edition",
+  defaultBrowser: "Google Chrome",
   rewrite: [
     {
       match: "x.com/*",
@@ -52,23 +52,12 @@ export default {
       },
       browser: "/Applications/Jitsi Meet.app",
     },
-
     {
       match: "*.microsoftonline.com/*",
       browser: "Google Chrome",
     },
-
     {
-      match: "open.spotify.com/*",
-      browser: "Spotify",
-    },
-
-    {
-      match: [
-        "zoom.us/*",
-        finicky.matchHostnames(/.*\zoom.us/),
-        /zoom.us\/j\//,
-      ],
+      match: ["zoom.us/*", finicky.matchHostnames(/.*\zoom.us/), /zoom.us\/j\//],
       browser: "us.zoom.xos",
     },
   ],
