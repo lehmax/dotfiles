@@ -97,13 +97,30 @@ alias vim='nvim'
 alias y='yarn'
 
 alias android-emulator='emulator -avd pixel_9_16kb -no-snapshot'
+alias ast='open -a "Android Studio"'
 
 alias gb='cd ~/project/genybet'
+alias gbe='cd ~/project/genybet-expo'
 
 # Fuzzy-jump into a git worktree (needs fzf). Complements the wt/wtl/wtp git aliases.
-function wtcd() {
-  git rev-parse --is-inside-work-tree >/dev/null 2>&1 || return
+function wt() {
+  git rev-parse --git-dir >/dev/null 2>&1 || { echo "wt: not in a git repository" >&2; return 1; }
   local dir
-  dir=$(git worktree list --porcelain | awk '/^worktree /{print substr($0,10)}' | fzf) || return
-  [[ -n $dir ]] && cd "$dir"
+  dir=$(git worktree list --porcelain | awk -v cur="$(git rev-parse --show-toplevel)" '
+    function flush() {
+      if (p == "") return
+      n = split(p, parts, "/")
+      printf "%s %-28s %s\t%s\n", (p == cur ? "*" : " "), parts[n], b, p
+      p = ""
+    }
+    /^worktree / { flush(); p = substr($0, 10); b = "(detached)" }
+    /^branch /   { b = substr($0, 8); sub("^refs/heads/", "", b) }
+    /^bare/      { b = "(bare)" }
+    END          { flush() }
+  ' | fzf --reverse --height=50% --prompt='worktree> ' --query="$1" \
+        --delimiter=$'\t' --with-nth=1 \
+        --header='* = worktree courant' \
+        --preview='git -C {2} log --oneline --color=always -20' \
+    | cut -f2) || return
+  cd "$dir"
 }
