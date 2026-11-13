@@ -84,6 +84,10 @@ if.app-id = 'dev.zed.Zed'
 run = ['move-node-to-workspace 1', 'layout tiles']
 
 [[on-window-detected]]
+if.app-id = 'com.stablyai.orca'
+run = ['move-node-to-workspace 1', 'layout tiles']
+
+[[on-window-detected]]
 if.app-id = 'net.kovidgoyal.kitty'
 run = ['move-node-to-workspace 2', 'layout tiles']
 
